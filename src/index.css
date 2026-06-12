@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-500: #84cc16; /* Lime Green accent for active states */
+  --color-brand-600: #65a30d;
+  
+  --font-sans: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html, body {
+    @apply scroll-smooth antialiased font-sans;
+  }
+  
+  body {
+    @apply bg-white text-[#08060d] dark:bg-black dark:text-[#f3f4f6] transition-colors duration-200;
+  }
+}
+
+/* Custom styling to match the screenshot borders and fixed-width centered layout */
+.layout-container {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.layout-section {
+  border-b: 1.5px solid #000000;
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.dark .layout-section {
+  border-b: 1.5px solid #2e303a;
+}
