@@ -1,36 +1,36 @@
 import { useState } from 'react';
-import { Watch, Check } from 'lucide-react';
+import { Sparkles, Check } from 'lucide-react';
 
-export default function SectionPairing() {
-  const [watchPairingState, setWatchPairingState] = useState<'unpaired' | 'pairing' | 'paired'>('unpaired');
-  const [pairingProgress, setPairingProgress] = useState(0);
+export default function SectionWrapped() {
+  const [wrappedState, setWrappedState] = useState<'unloaded' | 'loading' | 'loaded'>('unloaded');
+  const [wrappedProgress, setWrappedProgress] = useState(0);
 
-  const handlePairWatch = () => {
-    if (watchPairingState === 'paired') {
-      setWatchPairingState('unpaired');
-      setPairingProgress(0);
+  const handleGenerateWrapped = () => {
+    if (wrappedState === 'loaded') {
+      setWrappedState('unloaded');
+      setWrappedProgress(0);
       return;
     }
-    setWatchPairingState('pairing');
+    setWrappedState('loading');
     let progress = 0;
     const interval = setInterval(() => {
-      progress += 5;
-      setPairingProgress(progress);
+      progress += 10;
+      setWrappedProgress(progress);
       if (progress >= 100) {
         clearInterval(interval);
-        setWatchPairingState('paired');
+        setWrappedState('loaded');
       }
-    }, 100);
+    }, 120);
   };
 
   return (
-    <div className="layout-section" id="pairing">
+    <div className="layout-section" id="wrapped">
       {/* Title */}
       <h2 className="text-3xl sm:text-[40px] font-black tracking-tight leading-[1.2] text-[#08060d] dark:text-[#f3f4f6] mb-12">
-        Connect to track
+        Your monthly wrapped
       </h2>
 
-      {/* Centered pairing interface */}
+      {/* Centered wrapped interface */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-8 w-full max-w-xl px-4">
         
         {/* Phone Mockup */}
@@ -44,24 +44,24 @@ export default function SectionPairing() {
             <div className="flex-grow flex flex-col justify-center py-2 space-y-4">
               <div className="text-center">
                 <div className="w-10 h-10 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center mx-auto mb-2 text-neutral-400">
-                  <Watch className="w-5 h-5" />
+                  <Sparkles className="w-5 h-5 text-brand-500" />
                 </div>
-                <span className="text-[9px] uppercase font-bold text-neutral-500 tracking-wider">Wearable Pairing</span>
-                <h4 className="text-xs font-bold text-white mt-1">CaLidar Active Watch</h4>
+                <span className="text-[9px] uppercase font-bold text-neutral-500 tracking-wider">Habit Insights</span>
+                <h4 className="text-xs font-bold text-white mt-1">December Wrapped</h4>
               </div>
 
               <div className="space-y-1.5 pt-1">
                 <button 
-                  onClick={handlePairWatch}
+                  onClick={handleGenerateWrapped}
                   className="w-full py-2 bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-[9px] uppercase tracking-wider rounded-lg border border-neutral-800 transition-all cursor-pointer"
                 >
-                  {watchPairingState === 'paired' ? 'Disconnect' : watchPairingState === 'pairing' ? 'Pairing...' : 'Add Watch'}
+                  {wrappedState === 'loaded' ? 'Reset Wrapped' : wrappedState === 'loading' ? 'Generating...' : 'Build Wrapped'}
                 </button>
                 <button className="w-full py-2 bg-neutral-950/40 text-neutral-500 hover:text-white font-bold text-[9px] uppercase tracking-wider rounded-lg transition-all">
-                  Remove Device
+                  Share to Instagram
                 </button>
                 <button className="w-full py-2 bg-[#121212]/40 text-neutral-500 hover:text-white font-bold text-[9px] uppercase tracking-wider rounded-lg transition-all">
-                  Show Pairing Pin
+                  Export PDF Report
                 </button>
               </div>
             </div>
@@ -80,42 +80,42 @@ export default function SectionPairing() {
 
             {/* Screen */}
             <div className="relative w-full h-full bg-black rounded-[26px] border border-neutral-900 z-10 p-3 flex flex-col justify-between items-center text-center">
-              <div className="text-[8px] font-bold text-neutral-500 tracking-widest pt-1 uppercase">CALIDAR SYNC</div>
+              <div className="text-[8px] font-bold text-neutral-500 tracking-widest pt-1 uppercase">DEC WRAPPED</div>
 
               <div className="relative w-14 h-14 rounded-full border border-neutral-900/60 flex items-center justify-center my-1 bg-neutral-950 shadow-inner">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full transform -rotate-90">
                   <circle cx="50" cy="50" r="42" stroke="#171717" strokeWidth="5" fill="none" />
                   <circle 
-                    cx="50" 
-                    cy="50" 
-                    r="42" 
-                    stroke={watchPairingState === 'paired' ? '#84cc16' : '#f59e0b'} 
-                    strokeWidth="5" 
-                    fill="none" 
-                    strokeDasharray="263.89" 
-                    strokeDashoffset={watchPairingState === 'paired' ? 0 : watchPairingState === 'pairing' ? 263.89 - (263.89 * pairingProgress) / 100 : 200}
-                    className="transition-all duration-300"
+                     cx="50" 
+                     cy="50" 
+                     r="42" 
+                     stroke={wrappedState === 'loaded' ? '#84cc16' : '#f59e0b'} 
+                     strokeWidth="5" 
+                     fill="none" 
+                     strokeDasharray="263.89" 
+                     strokeDashoffset={wrappedState === 'loaded' ? 0 : wrappedState === 'loading' ? 263.89 - (263.89 * wrappedProgress) / 100 : 200}
+                     className="transition-all duration-300"
                   />
                 </svg>
                 
-                {watchPairingState === 'paired' ? (
+                {wrappedState === 'loaded' ? (
                   <Check className="w-5 h-5 text-brand-400" />
                 ) : (
-                  <span className="text-xs font-mono font-bold text-amber-400">P</span>
+                  <span className="text-xs font-mono font-bold text-amber-400">W</span>
                 )}
               </div>
 
               <div className="text-[8px] text-neutral-400 tracking-tight pb-1">
-                {watchPairingState === 'paired' ? 'Connected Sync' : watchPairingState === 'pairing' ? 'Connecting...' : 'Secure Unpaired'}
+                {wrappedState === 'loaded' ? '28 Days Active' : wrappedState === 'loading' ? 'Analyzing...' : 'Ready to Load'}
               </div>
             </div>
           </div>
 
           <button 
-            onClick={handlePairWatch}
+            onClick={handleGenerateWrapped}
             className="mt-4 px-3 py-1.5 bg-neutral-900 border border-neutral-800 rounded-lg text-[9px] font-mono text-neutral-300 hover:text-white transition-all uppercase tracking-wide cursor-pointer shadow-sm"
           >
-            {watchPairingState === 'unpaired' ? 'Simulate Link' : 'Simulate Reset'}
+            {wrappedState === 'unloaded' ? 'Simulate Wrapped' : 'Simulate Reset'}
           </button>
         </div>
 

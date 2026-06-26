@@ -5,7 +5,7 @@ export default function HoldToScanMockup() {
   const [unlockProgress, setUnlockProgress] = useState(0);
   const [isHoldingUnlock, setIsHoldingUnlock] = useState(false);
   const [isUnlocked, setIsUnlocked] = useState(false);
-  const unlockIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const unlockIntervalRef = useRef<any | null>(null);
 
   useEffect(() => {
     if (isHoldingUnlock && !isUnlocked) {

@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import SectionHero from './components/SectionHero';
-import SectionSync from './components/SectionSync';
-import SectionPairing from './components/SectionPairing';
-import SectionDatabase from './components/SectionDatabase';
-import SectionControl from './components/SectionControl';
-import SectionSyncQR from './components/SectionSyncQR';
+import SectionWorkout from './components/SectionWorkout';
+import SectionWrapped from './components/SectionWrapped';
+import SectionStory from './components/SectionStory';
+import SectionProgress from './components/SectionProgress';
+import SectionRecommendation from './components/SectionRecommendation';
+import SectionAICoach from './components/SectionAICoach';
+import SectionCommunity from './components/SectionCommunity';
 import SectionFooter from './components/SectionFooter';
 
 export default function App() {
@@ -56,25 +58,31 @@ export default function App() {
       {/* Main cloned single-column container */}
       <main className="layout-container">
         
-        {/* Section 1: Hero */}
+        {/* Feature 1: Food log by scanning (with LiDAR) */}
         <SectionHero />
 
-        {/* Section 2: Sync Health devices */}
-        <SectionSync />
+        {/* Feature 2: Workout logging */}
+        <SectionWorkout />
 
-        {/* Section 3: Wearable Pairing */}
-        <SectionPairing />
+        {/* Feature 3: Monthly wrapped */}
+        <SectionWrapped />
 
-        {/* Section 4: Database consensus */}
-        <SectionDatabase />
+        {/* Feature 4: Instagram style story to add meal of the day */}
+        <SectionStory />
 
-        {/* Section 5: Calorie Threshold setting */}
-        <SectionControl />
+        {/* Feature 5: Progress Tracker (including images) */}
+        <SectionProgress />
 
-        {/* Section 6: Local QR Syncing */}
-        <SectionSyncQR />
+        {/* Feature 6: Daily meal recommendation */}
+        <SectionRecommendation />
 
-        {/* Section 7, 8, 9: Link lists, Accordions, Footer broken-circle logo */}
+        {/* Feature 7: AI Coach */}
+        <SectionAICoach />
+
+        {/* Feature 8: See other people's progress */}
+        <SectionCommunity />
+
+        {/* Footer & Accoridons */}
         <SectionFooter />
 
       </main>

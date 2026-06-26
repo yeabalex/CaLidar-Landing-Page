@@ -130,11 +130,15 @@ export default function SectionFooter() {
             <div className="px-8 pb-8 pt-2 animate-in fade-in duration-200 text-left text-xs text-neutral-500 dark:text-neutral-400 space-y-3 max-w-xl leading-relaxed">
               <div>
                 <p className="font-extrabold text-[#08060d] dark:text-white">Does it require LiDAR sensors?</p>
-                <p className="mt-0.5">LiDAR is supported on iPhone Pro/iPad Pro and provides the highest volumetric scan accuracy, but standard camera stereo-vision is also supported on other devices!</p>
+                <p className="mt-0.5">LiDAR is supported on iPhone Pro/iPad Pro and provides the highest volumetric scan accuracy for 3D meal mapping, but standard camera stereo-vision is also supported on other devices!</p>
               </div>
               <div>
-                <p className="font-extrabold text-[#08060d] dark:text-white">Where is my data stored?</p>
-                <p className="mt-0.5">CaLidar is fully self-custodial. Your meal logs and weights are stored locally inside your device enclaves and synchronized only when you scan sync-QRs offline.</p>
+                <p className="font-extrabold text-[#08060d] dark:text-white">How does workout logging and syncing work?</p>
+                <p className="mt-0.5">Workouts are tracked locally on your smartwatch or phone and synchronized across all active devices automatically to compute daily active calories.</p>
+              </div>
+              <div>
+                <p className="font-extrabold text-[#08060d] dark:text-white">Are my progress photos secure?</p>
+                <p className="mt-0.5">Yes. All progress photos and metrics stored in the Visual Progress Tracker are encrypted locally inside your device enclave. Nothing is ever uploaded without your explicit consent.</p>
               </div>
             </div>
           )}
@@ -151,7 +155,7 @@ export default function SectionFooter() {
           </button>
           {activeAccordion === 'privacy' && (
             <div className="px-8 pb-8 pt-2 animate-in fade-in duration-200 text-left text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              We collect exactly zero data. All portion mapping, database checks, and active sync handshakes occur purely local to your secure hardware.
+              We collect exactly zero data. All 3D scans, personal AI coach enclaves, and progress photos are stored on-device to guarantee absolute privacy.
             </div>
           )}
         </div>
@@ -167,7 +171,7 @@ export default function SectionFooter() {
           </button>
           {activeAccordion === 'terms' && (
             <div className="px-8 pb-8 pt-2 animate-in fade-in duration-200 text-left text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              By using CaLidar's offline portion mapping, you take full ownership of your diet logs, local enclaves, and verification consensus rules.
+              By using CaLidar, you take full ownership of your diet logs, local photos, and shared community meal stories.
             </div>
           )}
         </div>
