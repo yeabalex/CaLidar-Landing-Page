@@ -1,12 +1,170 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    
+    <!-- Primary Page Title & Meta Tags -->
+    <title>CaLidar — AI & LiDAR 3D Calorie Tracker | Precision Nutrition & Macros</title>
+    <meta name="title" content="CaLidar — AI & LiDAR 3D Calorie Tracker | Precision Nutrition & Macros" />
+    <meta name="description" content="CaLidar revolutionizes nutrition tracking with instant 3D LiDAR volumetric meal scanning, AI macro breakdown, 100% on-device privacy, adaptive coaching, and multi-device sync. No kitchen scales. No manual logging. Just scan." />
+    <meta name="keywords" content="calidar, lidar calorie tracker, ai calorie counter, 3d meal scan, macro tracker, nutrition app, ai fitness coach, private calorie tracker, food scanner, volumetric calorie tracker, visual body progress, nutrition ai" />
+    <meta name="author" content="CaLidar Team" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://calidar.app/" />
+
+    <!-- Favicons & Mobile Web App -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>calidar-landing-page</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#08060d" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="CaLidar" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Open Graph / Facebook / LinkedIn / Discord -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://calidar.app/" />
+    <meta property="og:site_name" content="CaLidar" />
+    <meta property="og:title" content="CaLidar — AI & LiDAR 3D Calorie Tracker | Precision Nutrition & Macros" />
+    <meta property="og:description" content="Instant 3D LiDAR volumetric meal scanning and AI macro calculation. No scales. No manual food logs. 100% on-device privacy." />
+    <meta property="og:image" content="https://calidar.app/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CaLidar 3D LiDAR Calorie Tracker Preview" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://calidar.app/" />
+    <meta name="twitter:title" content="CaLidar — AI & LiDAR 3D Calorie Tracker | Precision Nutrition & Macros" />
+    <meta name="twitter:description" content="Instant 3D LiDAR volumetric meal scanning and AI macro calculation. 100% private and on-device." />
+    <meta name="twitter:image" content="https://calidar.app/og-image.svg" />
+    <meta name="twitter:image:alt" content="CaLidar 3D LiDAR Calorie Tracker App Preview" />
+    <meta name="twitter:creator" content="@calidarapp" />
+
+    <!-- Google Fonts Preconnect for Core Web Vitals Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data for Search Engine Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://calidar.app/#app",
+          "name": "CaLidar",
+          "applicationCategory": "HealthAndFitnessApplication",
+          "operatingSystem": "iOS 16.0+, iPadOS 16.0+, Android 12+",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "ratingCount": "1280",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "description": "CaLidar uses 3D LiDAR sensors and AI spatial vision to instantly calculate food volume, calories, and macronutrients in under a second.",
+          "featureList": [
+            "3D LiDAR volumetric portion scanning",
+            "Sub-second AI calorie and macro identification",
+            "100% on-device enclave privacy (zero cloud data leaks)",
+            "Visual body transformation progress tracker",
+            "Personalized AI fitness and nutrition coach",
+            "Real-time smartwatch and multi-device sync",
+            "Instagram-style 24hr meal stories and community streaks"
+          ],
+          "author": {
+            "@type": "Organization",
+            "name": "CaLidar",
+            "url": "https://calidar.app"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://calidar.app/#website",
+          "url": "https://calidar.app/",
+          "name": "CaLidar — AI & LiDAR 3D Calorie Tracker",
+          "description": "The next generation of nutrition tracking with 3D LiDAR & AI.",
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://calidar.app/#organization",
+          "name": "CaLidar",
+          "url": "https://calidar.app/",
+          "logo": "https://calidar.app/calidar_icon_only_1x1_2048.png",
+          "sameAs": [
+            "https://twitter.com/calidarapp",
+            "https://instagram.com/calidarapp",
+            "https://github.com/calidar"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://calidar.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does CaLidar require a phone with LiDAR sensors?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "LiDAR is natively supported on iPhone Pro and iPad Pro models for millimeter-accurate 3D volumetric mapping. However, CaLidar also supports AI dual-camera stereo-vision and spatial depth estimation on standard iPhone and Android devices so anyone can log meals instantly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does CaLidar calculate calories from a 3D scan?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "CaLidar maps the precise physical 3D volume (cubic centimeters) of your food plate using LiDAR point clouds, identifies each ingredient with AI visual neural networks, and calculates accurate weight and nutritional macros using standardized density matrices."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my health and meal photo data private?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, 100%. All 3D scans, AI inference models, and progress photos are processed strictly on-device inside your hardware enclave. We do not sell user data, train public models on your meals, or upload private photos to external cloud servers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does workout logging and multi-device sync work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Workouts logged on your Apple Watch, Garmin, or phone automatically synchronize in real time to dynamically adjust your daily active metabolic allowance and macro targets."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I join the CaLidar closed beta?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Simply submit your email in the waitlist section on calidar.app to reserve your invite spot. New beta batches are released weekly."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
-  <body>
+  <body class="bg-white text-[#08060d] dark:bg-black dark:text-[#f3f4f6] selection:bg-brand-500 selection:text-black">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

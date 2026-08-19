@@ -14,9 +14,9 @@ export default function SectionStory() {
   }, [mealCalories]);
 
   return (
-    <div className="layout-section" id="story">
+    <section className="layout-section" id="story">
       {/* Title */}
-      <h2 className="text-3xl sm:text-[40px] font-black tracking-tight leading-[1.2] text-[#08060d] dark:text-[#f3f4f6] mb-4">
+      <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-[1.15] text-[#08060d] dark:text-[#f3f4f6] mb-4">
         Instagram-style meal stories
       </h2>
       
@@ -80,12 +80,12 @@ export default function SectionStory() {
                         (i % 12 < 3 && Math.floor(i / 12) < 3) ||
                         (i % 12 >= 9 && Math.floor(i / 12) < 3) ||
                         (i % 12 < 3 && Math.floor(i / 12) >= 9);
-                      const isRandomPixel = Math.random() > 0.45;
+                      const isPatternPixel = ((i * 47 + 13) % 19) > 8;
                       return (
                         <div 
                           key={i}
                           className={`w-1.5 h-1.5 rounded-[1px] ${
-                            isBorderPixel ? 'bg-black' : isRandomPixel ? 'bg-black' : 'bg-neutral-100'
+                            isBorderPixel ? 'bg-black' : isPatternPixel ? 'bg-black' : 'bg-neutral-100'
                           }`}
                         />
                       );
@@ -113,6 +113,6 @@ export default function SectionStory() {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }

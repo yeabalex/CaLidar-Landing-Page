@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Watch, Smartphone, Laptop } from 'lucide-react';
+import { useState } from 'react';
+import { Watch, Smartphone, Laptop, RefreshCw } from 'lucide-react';
 
 export default function SectionWorkout() {
   const [workoutStatuses, setWorkoutStatuses] = useState({
@@ -7,20 +7,16 @@ export default function SectionWorkout() {
     watch: 'Active',
     laptop: 'Active'
   });
-  const [syncStatus, setSyncStatus] = useState('All Devices Syncing');
 
-  useEffect(() => {
-    const activeCount = Object.values(workoutStatuses).filter(status => status === 'Active').length;
-    if (activeCount === 3) {
-      setSyncStatus('Optimal (3/3 Devices Synced)');
-    } else if (activeCount === 2) {
-      setSyncStatus('Warning (2/3 Devices Synced)');
-    } else if (activeCount === 1) {
-      setSyncStatus('Vulnerable (1/3 Synced - Live Sync Required)');
-    } else {
-      setSyncStatus('Offline State - Local Cache Only');
-    }
-  }, [workoutStatuses]);
+  const activeCount = Object.values(workoutStatuses).filter(status => status === 'Active').length;
+  const syncStatus =
+    activeCount === 3
+      ? 'Optimal (3/3 Devices Synced)'
+      : activeCount === 2
+      ? 'Warning (2/3 Devices Synced)'
+      : activeCount === 1
+      ? 'Vulnerable (1/3 Synced - Live Sync Required)'
+      : 'Offline State - Local Cache Only';
 
   const toggleWorkoutStatus = (dev: keyof typeof workoutStatuses) => {
     setWorkoutStatuses(prev => ({
@@ -30,17 +26,22 @@ export default function SectionWorkout() {
   };
 
   return (
-    <div className="layout-section">
+    <section id="sync" className="layout-section">
       {/* Title */}
-      <h2 className="text-3xl sm:text-[40px] font-black tracking-tight leading-[1.2] text-[#08060d] dark:text-[#f3f4f6] mb-4">
+      <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-[1.15] text-[#08060d] dark:text-[#f3f4f6] mb-4">
         Workout logging<br />
         in perfect sync
       </h2>
       
+      <p className="text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 max-w-lg mb-6">
+        Automatic continuous peer-to-peer sync across Apple Watch, iPhone, and desktop. No manual data export required.
+      </p>
+
       {/* Workout Sync Health Badge */}
-      <div className="inline-flex items-center space-x-2 px-3 py-1 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-full mb-12 text-[10px] font-bold text-neutral-500">
+      <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-full mb-12 text-[10px] font-extrabold text-neutral-600 dark:text-neutral-400 shadow-sm">
+        <RefreshCw className="w-3 h-3 text-brand-500 animate-spin" />
         <span>Workout Sync:</span>
-        <span className={syncStatus.includes('Optimal') ? 'text-brand-600 dark:text-brand-400' : 'text-amber-500'}>
+        <span className={syncStatus.includes('Optimal') ? 'text-brand-600 dark:text-brand-400 font-black' : 'text-amber-500 font-black'}>
           {syncStatus}
         </span>
       </div>
@@ -54,7 +55,7 @@ export default function SectionWorkout() {
             <Watch className="w-8 h-8 text-neutral-400" />
             <span className={`absolute -top-2 -right-2 h-5 px-1.5 rounded-full text-[8px] font-bold border ${
               workoutStatuses.watch === 'Active' 
-                ? 'bg-brand-500/10 text-brand-600 border-brand-500/30' 
+                ? 'bg-brand-500/10 text-brand-600 dark:text-brand-400 border-brand-500/30' 
                 : 'bg-neutral-900 text-neutral-500 border-neutral-800'
             }`}>
               {workoutStatuses.watch === 'Active' ? 'Active' : 'Paused'}
@@ -74,7 +75,7 @@ export default function SectionWorkout() {
             <Smartphone className="w-10 h-10 text-neutral-400" />
             <span className={`absolute -top-2 -right-2 h-5 px-1.5 rounded-full text-[8px] font-bold border ${
               workoutStatuses.phone === 'Active' 
-                ? 'bg-brand-500/10 text-brand-600 border-brand-500/30' 
+                ? 'bg-brand-500/10 text-brand-600 dark:text-brand-400 border-brand-500/30' 
                 : 'bg-neutral-900 text-neutral-500 border-neutral-800'
             }`}>
               {workoutStatuses.phone === 'Active' ? 'Active' : 'Paused'}
@@ -95,7 +96,7 @@ export default function SectionWorkout() {
               <Laptop className="w-12 h-12 text-neutral-400" />
               <span className={`absolute -top-2 -right-2 h-5 px-1.5 rounded-full text-[8px] font-bold border ${
                 workoutStatuses.laptop === 'Active' 
-                  ? 'bg-brand-500/10 text-brand-600 border-brand-500/30' 
+                  ? 'bg-brand-500/10 text-brand-600 dark:text-brand-400 border-brand-500/30' 
                   : 'bg-neutral-900 text-neutral-500 border-neutral-800'
               }`}>
                 {workoutStatuses.laptop === 'Active' ? 'Active' : 'Paused'}
@@ -112,6 +113,6 @@ export default function SectionWorkout() {
         </div>
 
       </div>
-    </div>
+    </section>
   );
 }
